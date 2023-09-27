@@ -28,3 +28,11 @@
      margin: 0em;
  
  }
+
+ .box-three {
+    text-align: center;
+    padding: 0.5em;
+    background-color: #6ff7b1;
+    border: 0.2em double #4f27ae;
+    margin: 0.5em;
+}
