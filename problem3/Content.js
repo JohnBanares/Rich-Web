@@ -10,7 +10,7 @@ let webImages = [
 
 
 
-document.body.style.backgroundColor = 'DarkCyan';
+document.body.style.backgroundColor = "DarkCyan";
 
 //reverse through array of images
 //getting random image from the array we created before (we use math.floor and math.random to grab a random index in the array)
@@ -37,7 +37,7 @@ for (let i = 0; i < p.length; i++){
 }
 
 //using keywords replace the innertext of all links and span tags not relating to web 
-const swap = document.querySelectorAll('a, span');
+const swap = document.querySelectorAll("a, span");
 for(let i =0; i < swap.length; i++){
     if(!/web|react|jQuery|css|html|javascript|angular|.js|php|typescript|json|node|express|wordpress|laravel|svg|bootstrap/i.test(swap[i].innerHTML))
     {
