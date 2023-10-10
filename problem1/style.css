@@ -1,0 +1,25 @@
+.outer{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+.inner {
+    flex: 1;
+    min-width: 25%;
+    box-sizing: border-box;
+    height: 100px;
+    border: 1px solid black;
+}
+
+@media screen and (max-width: 960px) {
+    .inner {
+        min-width: 50%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .inner {
+        min-width: 100%;
+    }
+}
