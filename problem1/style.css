@@ -1,3 +1,26 @@
+
+#phoneAdd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#form-phone{
+    padding: 3rem;
+    background-color: rgb(86, 196, 218);
+    border-radius: 1rem;
+    border: solid 5px rgb(35, 143, 165);
+}
+#phoneAdd input{
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-style: none;
+}
+#addContact:hover {
+    background-color: rgb(210, 202, 202);
+    cursor: pointer;
+}
+
 #search {
     display: flex;
     align-items: center; 
@@ -35,6 +58,6 @@ th{
 
 #noResult {
     text-align: center;
-    visibility: hidden;
+    display: none;
     color: red;
 }
