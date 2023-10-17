@@ -20,7 +20,12 @@
     background-color: rgb(210, 202, 202);
     cursor: pointer;
 }
-
+#error{
+    text-align: center;
+    color: rgb(137, 23, 23);
+    font-weight: bold;
+    display: none;
+}
 #search {
     display: flex;
     align-items: center; 
