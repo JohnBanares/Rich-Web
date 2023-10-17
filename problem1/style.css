@@ -32,3 +32,9 @@ th, td {
 th{
     text-align: left;
 }
+
+#noResult {
+    text-align: center;
+    visibility: hidden;
+    color: red;
+}
