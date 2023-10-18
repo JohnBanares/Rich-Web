@@ -113,5 +113,49 @@ window.addEventListener('load', ()=> {
             warning.style.display = 'none';
         }
     }
+    
+    
 });
+
+function sortTable(n) {
+    let table
+    let rows, i, x, y, dir, count = 0;
+    table = document.getElementById('resultList');
+    var switching = true;
+    dir = 'ascending'; 
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            var Switch = false;
+            x = rows[i].getElementsByTagName('td')[n];
+            y = rows[i + 1].getElementsByTagName('td')[n];
+            if (dir == 'ascending') {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    Switch= true;
+                    break;
+                }
+            }
+            if (dir == 'descending') {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    Switch= true;
+                    break;
+                }
+            }  
+        }
+        if (Switch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            count ++;
+        } 
+        else 
+        {
+            if (count == 0 && dir == 'ascending') {
+                dir = 'descending';
+                switching = true;
+            }
+        }
+    }
+}
+
 
