@@ -81,6 +81,13 @@ window.addEventListener('load', ()=> {
         contact.value='';
         mobile.value='';
         email.value='';
+
+        //change background if odd numbered row
+        for (const row of rows) {
+            if (row.rowIndex % 2 == 1) {
+                row.style.backgroundColor ='#f2f2f2';
+            }
+        }
     })
 
     searchBox.addEventListener('input', function() {
@@ -114,6 +121,12 @@ window.addEventListener('load', ()=> {
         }
     }
     
+    //change background color of odd numbered row
+    for (const row of rows) {
+        if (row.rowIndex % 2 == 1) {
+            row.style.backgroundColor ='#f2f2f2';
+        }
+    }
     
 });
 
