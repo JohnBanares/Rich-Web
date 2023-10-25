@@ -35,7 +35,9 @@ const getData = (data,search_username) => {
     }
    
 };
-
+const getRepo = (search_username) => {
+    console.log('looking for ' + search_username + ' repos');
+};
 
 form_search.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -54,7 +56,10 @@ form_search.addEventListener('submit', (e)=>{
             return response.json();
         }
     })
-    .then(data=>getData(data, search_username));
+    .then(data=>{
+        getData(data, search_username);
+        getRepo(search_username);
+    });
 
     username.value='';        
 })
