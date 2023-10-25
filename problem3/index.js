@@ -22,6 +22,7 @@ const getData = (data,search_username) => {
         info_email.innerHTML = info_email.innerHTML.slice(0,6) +`&nbsp; &nbsp; ${data.email}`; 
         info_location.innerHTML = info_location.innerHTML.slice(0,9) +`&nbsp; &nbsp; ${data.location}`; 
         info_gists.innerHTML = info_gists.innerHTML.slice(0,16) +`&nbsp; &nbsp; ${data.public_gists}`; 
+
     }
     else
     {
@@ -36,7 +37,24 @@ const getData = (data,search_username) => {
    
 };
 const getRepo = (search_username) => {
-    console.log('looking for ' + search_username + ' repos');
+    console.log(`https://api.github.com/users/${search_username}/repos`);
+    fetch(`https://api.github.com/users/${search_username}/repos`)
+    .then(response => {
+        if(!response.ok)
+        {
+            console.log("error");
+        }
+        else{
+            return response.json();
+        }
+    })
+    .then(user_repo=>{
+        const repo_name = user_repo.map(user_repo=>user_repo.name);
+        const repo_desc = user_repo.map(user_repo=>user_repo.description);
+        console.log(repo_name);
+        console.log(repo_desc);
+
+    });
 };
 
 form_search.addEventListener('submit', (e)=>{
@@ -57,8 +75,9 @@ form_search.addEventListener('submit', (e)=>{
         }
     })
     .then(data=>{
-        getData(data, search_username);
+        getData(data, search_username)
         getRepo(search_username);
+
     });
 
     username.value='';        
