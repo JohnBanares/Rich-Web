@@ -12,19 +12,26 @@ const url = 'https://api.github.com/users';
 const getData = (data,search_username) => {
     const login = data.login; 
     // console.log(data.public_gists);
-    if(login.includes(search_username))
+    if(login === search_username)
     {
-        console.log(search_username + 'exists');
+        // console.log(search_username + 'exists');
+        info_pfp.style.visibility ='visible';
+        info_pfp.src = data.avatar_url;
         info_name.innerHTML = info_name.innerHTML.slice(0,5) +`&nbsp; &nbsp; ${data.name}`; 
         info_username.innerHTML = info_username.innerHTML.slice(0,9) +`&nbsp; &nbsp; ${login}`; 
         info_email.innerHTML = info_email.innerHTML.slice(0,6) +`&nbsp; &nbsp; ${data.email}`; 
-        info_location.innerHTML = info_location.innerHTML.slice(0,11) +`&nbsp; &nbsp; ${data.location}`; 
-        info_pfp.src = data.avatar_url;
+        info_location.innerHTML = info_location.innerHTML.slice(0,9) +`&nbsp; &nbsp; ${data.location}`; 
         info_gists.innerHTML = info_gists.innerHTML.slice(0,16) +`&nbsp; &nbsp; ${data.public_gists}`; 
     }
     else
     {
-        console.log(search_username + 'does not exists')
+        info_pfp.style.visibility ='hidden';
+        info_name.innerHTML = 'Name';
+        info_username.innerHTML = 'Username:';
+        info_email.innerHTML = 'Email';
+        info_location.innerHTML = 'Location:';
+        info_gists.innerHTML = 'Number of gists:';
+        // console.log(search_username + 'does not exists');
     }
    
 };
