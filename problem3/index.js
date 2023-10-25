@@ -1,26 +1,26 @@
-// fetch('https://api.github.com/users')
-//     .then(response => response.json())
-//     .then(data => {
-//         const part1 = data.map(user => user.login); 
-
-//         console.log(part1);
-//         const name = document.getElementById('info_name');
-//         name.innerHTML = name.innerHTML +`&nbsp; &nbsp; ${part1[0]}`; 
-//     });
-
-
 const form_search = document.getElementById('form_search');
 const username = document.getElementById('input_box');
+const info_name = document.getElementById('info_name');
+const info_username = document.getElementById('info_username');
+const info_email = document.getElementById('info_email');
+const info_location = document.getElementById('info_location');
+const info_pfp = document.getElementById('info_pfp');
+const info_gists = document.getElementById('info_gists');
+
 const url = 'https://api.github.com/users';
 
 const getData = (data,search_username) => {
-    const part1 = data.login; 
-
-    if(part1.includes(search_username))
+    const login = data.login; 
+    // console.log(data.public_gists);
+    if(login.includes(search_username))
     {
         console.log(search_username + 'exists');
-        const name = document.getElementById('info_name');
-        name.innerHTML = name.innerHTML.slice(0,5) +`&nbsp; &nbsp; ${data.name}`; 
+        info_name.innerHTML = info_name.innerHTML.slice(0,5) +`&nbsp; &nbsp; ${data.name}`; 
+        info_username.innerHTML = info_username.innerHTML.slice(0,9) +`&nbsp; &nbsp; ${login}`; 
+        info_email.innerHTML = info_email.innerHTML.slice(0,6) +`&nbsp; &nbsp; ${data.email}`; 
+        info_location.innerHTML = info_location.innerHTML.slice(0,11) +`&nbsp; &nbsp; ${data.location}`; 
+        info_pfp.src = data.avatar_url;
+        info_gists.innerHTML = info_gists.innerHTML.slice(0,16) +`&nbsp; &nbsp; ${data.public_gists}`; 
     }
     else
     {

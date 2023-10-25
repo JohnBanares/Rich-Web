@@ -44,15 +44,15 @@
 }
 
 #user_profile{
-    width: 25%;
-    background-color: greenyellow;
+    width: 30%;
+    /* background-color: greenyellow; */
     padding: 2rem;
 
 }
 
 #user_repos{
     width: 25%;
-    background-color: green;
+    /* background-color: green; */
     padding: 2rem;
 }
 
@@ -60,6 +60,14 @@
     border: 1px solid black;
     padding: 1rem;
     font-weight: 600;
+}
+#info_image{
+    display: flex;
+    justify-content: center;
+}
+img{
+    height: 15em;
+    width: 75%;
 }
 
 
