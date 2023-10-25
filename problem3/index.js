@@ -14,13 +14,13 @@ const username = document.getElementById('input_box');
 const url = 'https://api.github.com/users';
 
 const getData = (data,search_username) => {
-    const part1 = data.map(user => user.login); 
+    const part1 = data.login; 
 
     if(part1.includes(search_username))
     {
         console.log(search_username + 'exists');
         const name = document.getElementById('info_name');
-        name.innerHTML = name.innerHTML +`&nbsp; &nbsp; ${search_username}`; 
+        name.innerHTML = name.innerHTML.slice(0,5) +`&nbsp; &nbsp; ${data.name}`; 
     }
     else
     {
@@ -34,11 +34,20 @@ form_search.addEventListener('submit', (e)=>{
     e.preventDefault();
 
     const search_username = username.value;
-    console.log(search_username);
+    const new_url = url.concat('/',search_username);
+    // console.log(url.concat('/',search_username));
 
-    fetch(url)
-    .then(response => response.json())
+    fetch(new_url)
+    .then(response => {
+        if(!response.ok)
+        {
+            console.log("error");
+        }
+        else{
+            return response.json();
+        }
+    })
     .then(data=>getData(data, search_username));
 
-        
+    username.value='';        
 })
