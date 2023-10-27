@@ -83,14 +83,11 @@ window.addEventListener('load', ()=> {
         email.value='';
 
         //change background if odd numbered row
-        for (const row of rows) {
-            if (row.rowIndex % 2 == 1) {
-                row.style.backgroundColor ='#f2f2f2';
-            }
-        }
-    })
+        setColor();
+    });
 
     searchBox.addEventListener('input', function() {
+        //while user types call filterItems to search for contacts
         const searchText = searchBox.value.toLowerCase();
         filterItems(searchText);
     });
@@ -101,6 +98,7 @@ window.addEventListener('load', ()=> {
         let result = false;
 
         for (const row of rows) {
+            // loop through the table ignoring the header tags and loop through contacts as user types phone number
             if (row.rowIndex !== 0) {
                 const td = row.getElementsByTagName('td')[1]; 
                 const text = td.textContent.toLowerCase();
@@ -112,7 +110,8 @@ window.addEventListener('load', ()=> {
                 }
             }
         }
-
+        
+        //display the no result div tag if there is no result found else keep the display style as none
         if(result == false){
             warning.style.display = 'block';
         }
@@ -122,13 +121,9 @@ window.addEventListener('load', ()=> {
     }
     
     //change background color of odd numbered row
-    for (const row of rows) {
-        if (row.rowIndex % 2 == 1) {
-            row.style.backgroundColor ='#f2f2f2';
-        }
-    }
+    setColor();
     
-});
+})
 
 function sortTable(n) {
     let table
@@ -156,13 +151,16 @@ function sortTable(n) {
                 }
             }  
         }
+        //insert the next row i+1 before row i
         if (Switch) {
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
             count ++;
+            //update background color of tables
+            setColor();
         } 
         else 
-        {
+        {   //if the table is already sorted, when header is clicked change direction to descending
             if (count == 0 && dir == 'ascending') {
                 dir = 'descending';
                 switching = true;
@@ -172,3 +170,16 @@ function sortTable(n) {
 }
 
 
+function setColor(){
+    const rows = document.getElementsByTagName('tr');
+    for (const row of rows) {
+        if (row.rowIndex % 2 == 1) {
+            //if odd row set change backgroudn color
+            row.style.backgroundColor ='#f2f2f2';
+        }
+        else{
+            //if even set to background color to white
+            row.style.backgroundColor ='white';
+        }
+    }
+}
