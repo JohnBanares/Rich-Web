@@ -17,7 +17,10 @@
     flex-direction: wrap;
 } */
 
+body{
+    background-color: rgb(10, 81, 81);
 
+}
 #search{
     padding: 1rem;
 }
@@ -41,6 +44,12 @@
 #user{
     display: flex;
     justify-content: space-evenly;
+    width: 80%;
+    margin:auto;
+    border: 1px solid black;
+    border-radius: 2rem;
+    background-color: rgba(240, 255, 255, 0.379);
+
 }
 
 #user_profile{
@@ -52,9 +61,9 @@
 
 #user_repos{
     width: 30%;
-    height: 35rem;
+    height: 34rem;
     /* background-color: green; */
-    padding: 2rem;
+    padding-top: 2rem;
 }
 #outer{
     height:100%;
