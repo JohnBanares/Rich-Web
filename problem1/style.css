@@ -1,0 +1,107 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(21, 82, 81);
+}
+
+header{
+    max-width: 500px;
+    width: 100%;
+    margin:0 auto;
+
+}
+
+#form_note{
+    display: flex;
+}
+
+#text_box{
+    flex: 1 1 0%;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+#submit_box {
+    font-size: 1rem;
+    border-radius: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#notes .note{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(127, 175, 127);
+    padding: 1rem 10rem 1rem 10rem;
+    margin-bottom: 1rem;
+    padding-left: 10rem;
+}
+
+
+input.text{
+    background-color: rgb(127, 175, 127);
+    border: none;
+    color: black;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#note-list h2{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-style: bold;
+    
+}
+.edit {
+    background-color: rgb(21, 82, 81);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+
+}
+
+.delete {
+    background-color: rgb(21, 82, 81);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+
+}
+
+header button{
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+
+}
+
+#red_button{
+    background-color: red;
+}
+
+#blue_button{
+    background-color: blue;
+}
+
+#yellow_button{
+    background-color: yellow;
+}
+
+#green_button{
+    background-color: rgb(127, 175, 127);
+}
