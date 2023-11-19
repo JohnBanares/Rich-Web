@@ -1,0 +1,69 @@
+/* remove arros in input box type number */
+/* chrome, safari, edge, opera */
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* fire fox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div {
+    margin-top: 10vh;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    width: 10vh; 
+    height: 10vh; 
+    text-align: center;
+    font-size: 5vh;
+    color: grey;
+    border: 1px solid grey; 
+    border-radius: 1vh; 
+    outline: none;
+}
+
+span{
+    padding-top: 2vh;
+    font-size: 5vh;
+}
+button {
+    margin-top: 2vh;
+    font-size: 2vh;
+    font-weight: bold;
+    color: grey;
+    height: 10vh; 
+    width: 100%;
+    border-radius: 1vh; 
+    border: 1px solid grey; 
+    
+
+}
+
+#count {
+    margin-top: 1vh;
+    font-size: 5vh;
+    color: grey;
+}
+
