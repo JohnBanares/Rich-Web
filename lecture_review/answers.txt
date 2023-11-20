@@ -1,0 +1,43 @@
+1.
+A stream is data created, processed and consumed in an incremental fashion,
+data flows piece by piece . It allows data to be accessed straight away, it is an abstraction
+as data may or may not be arrive in the future.
+
+Streams immplement a design pattern called the observable pattern.
+Oberserver pattern where a subject maintains a list of observers and notifies
+state changes. Data from streams flow piece by piece and observers
+react accodingly to the data emitted from the stream, the stream
+notfies its observers
+
+In rich web development streams are useful for modeling asynch events
+such as form submissions and user input. They can handle their input
+on real time interactions and make the application more responsive 
+2.
+
+Storing the api response into a variable and subscribe to it to 
+handle the response. Rxjs provides operators to manage and manipulate
+date such as map, tap, switchmap etc.
+For example you can map to extract data from the response and modify it then
+tap to console log the result it without modify the data.
+
+Benefits:
+-You can unsubscirbe from streams allow for better use of resources 
+whereas promised cannot be cancelled.
+
+-streams data flow continuously and lead to handle scenarios better
+where data arrives incremental in real time whereas, promises solve single
+functions 
+
+Downsides:
+-One of the most difficult js libaries to use, this has a steep learning curve
+-Depnding on the task it may be easier to just uses promises, instead
+of adding unnessary complexity to the same thing with streams
+3.
+Shared global state can lead to problems where the state depends on 
+the order that it is executed leading to unwanted outcomes. It is harder
+to isolate each task and test their functions as the current state
+maybe be affected by the outcome of another task.
+
+A way to alleviate some problems that may arise is to use local scope.
+Which are variables that are decalred inside the function
+reducing risk of each task interfering with each other.
