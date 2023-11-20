@@ -47,6 +47,7 @@ input {
 span{
     padding-top: 2vh;
     font-size: 5vh;
+    color: grey;
 }
 button {
     margin-top: 2vh;
@@ -57,13 +58,18 @@ button {
     width: 100%;
     border-radius: 1vh; 
     border: 1px solid grey; 
-    
+    cursor: pointer;
 
 }
-
 #count {
     margin-top: 1vh;
     font-size: 5vh;
     color: grey;
 }
+button:active {
+    background-color: darkgrey; 
+}
+
+
+
 
