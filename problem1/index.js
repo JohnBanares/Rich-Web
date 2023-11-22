@@ -55,7 +55,7 @@ window.addEventListener('load', ()=> {
             new_functions.appendChild(new_delete);
             new_note.appendChild(new_functions);
     
-            list_notes.appendChild(new_note);
+            this.parent.appendChild(new_note); 
     
             // Create observables and subscribe to them
             fromEvent(new_functions, 'click')
@@ -73,7 +73,6 @@ window.addEventListener('load', ()=> {
             // Create observables and subscribe to them
             fromEvent(new_delete, 'click')
                 .subscribe(() => {
-                    list_notes.removeChild(new_note);
                     if (this.parent) {
                         this.parent.removeChild(this);
                     }
