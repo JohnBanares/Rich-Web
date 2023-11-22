@@ -77,10 +77,10 @@ window.addEventListener('load', ()=> {
                         this.parent.removeChild(this);
                     }
                 });
-    
+
             return new_note;
         }
-    
+
         removeChild(child) {
             this.element.removeChild(child.element);
         }
@@ -109,7 +109,7 @@ window.addEventListener('load', ()=> {
 
         const noteText = text_box.value;
 
-        const newNote = new Note(null, noteText);
+        const newNote = new Note(list_notes, noteText);
     });
 
 });
