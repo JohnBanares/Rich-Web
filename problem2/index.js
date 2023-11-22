@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return startClick$.pipe(takeUntil(fromEvent(startButton, "click")));
             })
         ).subscribe(() => {
-            clearInterval(intervalId);
+            // clearInterval(intervalId);
             console.log("Countdown stopped!");
         });
     }
