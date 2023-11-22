@@ -74,7 +74,7 @@ window.addEventListener('load', ()=> {
             fromEvent(new_delete, 'click')
                 .subscribe(() => {
                     if (this.parent) {
-                        this.parent.removeChild(this);
+                        this.parent.removeChild(new_note);
                     }
                 });
 
@@ -82,7 +82,7 @@ window.addEventListener('load', ()=> {
         }
 
         removeChild(child) {
-            this.element.removeChild(child.element);
+            this.element.removeChild(child);
         }
     }
 
