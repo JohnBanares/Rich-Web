@@ -6,6 +6,7 @@ function App() {
 
     const[note, setNote] = useState('');
     const[listNote, setlistNote] = useState([]);
+    const[toggle, setToggle] = useState(null);
     const inputRefs = useRef([]);
 
 
@@ -21,12 +22,19 @@ function App() {
     }
     
     const changeNote = (index) => {
-        inputRefs.current[index].readOnly = false;
-        inputRefs.current[index].focus();
-        const updateVal = inputRefs.current[index].value;
-        console.log(updateVal);
-        // console.log(listNote[index])
-        // console.log(inputRefs.current[index].value);
+        if(toggle === index)
+        {  
+            inputRefs.current[index].readOnly = true;
+            setToggle(null);
+
+        }
+        else
+        {
+            inputRefs.current[index].readOnly = false;
+            inputRefs.current[index].focus();
+            setToggle(index);
+        }
+       
     }
 
     
@@ -69,7 +77,9 @@ function App() {
                                             ref={(el) => (inputRefs.current[index] = el)}/>
                                     </div>
                                     <div className='functions'>
-                                        <button className='edit' onClick={() =>changeNote(index) }>Edit</button>
+                                        <button className='edit' onClick={() =>changeNote(index) }>
+                                            {toggle === index ? 'Save' : 'Edit'}
+                                        </button>
                                         <button className='delete' onClick={() => deleteNote(index)}>Delete</button>
                                     </div>
                                 </div>
