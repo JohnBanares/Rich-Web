@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { fromEvent } from 'rxjs';
 import './App.css';
 
@@ -6,11 +6,27 @@ function App() {
 
     const[note, setNote] = useState('');
     const[listNote, setlistNote] = useState([]);
+    const inputRefs = useRef([]);
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setlistNote([...listNote, note]);
         setNote('');
+    }
+    const deleteNote = (index) => {
+        const update = [...listNote];
+        update.splice(index, 1);
+        setlistNote(update);
+    }
+    
+    const changeNote = (index) => {
+        inputRefs.current[index].readOnly = false;
+        inputRefs.current[index].focus();
+        const updateVal = inputRefs.current[index].value;
+        console.log(updateVal);
+        // console.log(listNote[index])
+        // console.log(inputRefs.current[index].value);
     }
 
     
@@ -42,9 +58,20 @@ function App() {
 
                     <div id="notes">
                         {
-                            listNote.map((n) => (
-                                <div className='note'>
-                                    <input type='text' className='text' value={n}/>
+                            listNote.map((n, index) => (
+                                <div className='note'>     
+                                    <div className='words'>
+                                        <input 
+                                            type='text' 
+                                            className='text' 
+                                            defaultValue={n}
+                                            readOnly={true}  
+                                            ref={(el) => (inputRefs.current[index] = el)}/>
+                                    </div>
+                                    <div className='functions'>
+                                        <button className='edit' onClick={() =>changeNote(index) }>Edit</button>
+                                        <button className='delete' onClick={() => deleteNote(index)}>Delete</button>
+                                    </div>
                                 </div>
                             ))
                         }
