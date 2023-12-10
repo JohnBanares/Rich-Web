@@ -26,22 +26,47 @@ function App() {
         {  
             inputRefs.current[index].readOnly = true;
             setToggle(null);
+            
 
         }
         else
         {
+            const updateText = [...listNote];
+            //remove read only and focus on input
             inputRefs.current[index].readOnly = false;
             inputRefs.current[index].focus();
+
+            //update value of index and store in swap array
+            updateText[index] = inputRefs.current[index].value;
+            setlistNote(updateText);
+
+            // console.log("text was changed to", updateText[index]);
+            setToggle(updateText);
             setToggle(index);
         }
        
     }
 
-    
-  useEffect(() => {
-    console.log(listNote);
-  }, [listNote])
+    //used tp check updated of listnode
+    // useEffect(() => {
+    //     console.log(listNote);
+    // }, [listNote])
 
+    const handleColor = (color) => {
+        
+        //loop through each not in listNote
+        listNote.forEach((_, index) => {
+            //get the note and text classes and updated color
+            const noteElement = inputRefs.current[index].closest('.note');
+            const text = inputRefs.current[index].closest('.text');
+
+            noteElement.style.backgroundColor = color;
+            text.style.backgroundColor = color
+        });
+    };
+      
+    
+    
 
     return (
         <div className='body'>
@@ -53,10 +78,10 @@ function App() {
                     <input type="submit" id="submit_box" value="Add note"/>
                     </form >
                     <h2>Set Box Color :</h2>
-                    <button id="red_button">Red</button>
-                    <button id="blue_button">Blue</button>
-                    <button id="yellow_button">Yellow</button>
-                    <button id="green_button">Green</button>
+                    <button id="red_button" onClick={() => handleColor('red')}>Red</button>
+                    <button id="blue_button" onClick={() => handleColor('blue')}>Blue</button>
+                    <button id="yellow_button" onClick={() => handleColor('yelow')}>Yellow</button>
+                    <button id="green_button" onClick={() => handleColor('green')}>Green</button>
 
                 </header>
 
