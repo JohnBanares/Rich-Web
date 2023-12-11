@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { fromEvent } from 'rxjs';
+import { IoReload } from "react-icons/io5";
 import './App.css';
 
 function App() {
@@ -8,12 +8,32 @@ function App() {
     const[listNote, setlistNote] = useState([]);
     const[toggle, setToggle] = useState(null);
     const inputRefs = useRef([]);
+    const [randomFact, setRandomFact] = useState('');
+
+    useEffect(() => {
+        fetchData();
+      }, []); 
+    
+    const fetchData = async () => {
+      try {
+        // Fetch a random fact
+        const responseRandom = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random");
+        const dataRandom = await responseRandom.json();
+        setRandomFact(dataRandom.text);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    
+     const refreshFact = () => {
+        fetchData();
+     }
 
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setlistNote([...listNote, note]);
-        setNote('');
+        setNote('');   
     }
     const deleteNote = (index) => {
         const update = [...listNote];
@@ -65,6 +85,7 @@ function App() {
         });
     };
       
+  
     
     
 
@@ -77,6 +98,13 @@ function App() {
                     <input type="text" id="text_box" placeholder="Add note here" value ={note} onChange={(event) => setNote(event.target.value)}/>
                     <input type="submit" id="submit_box" value="Add note"/>
                     </form >
+
+                    <h2>Random Fact:</h2>
+                    <div className='facts'>
+                        <h3>{randomFact}</h3>
+                        <button id='refresh' onClick={refreshFact}><IoReload /></button>
+                    </div>
+
                     <h2>Set Box Color :</h2>
                     <button id="red_button" onClick={() => handleColor('red')}>Red</button>
                     <button id="blue_button" onClick={() => handleColor('blue')}>Blue</button>

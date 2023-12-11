@@ -105,3 +105,23 @@ header button{
 #green_button{
   background-color: rgb(127, 175, 127);
 }
+
+.facts{
+  /* border: 1px solid black; */
+  /* padding-left: 2rem; */
+  display: flex;
+  align-items: center;
+  height: 1rem;
+}
+.facts h3 {
+  width: 50rem;
+  margin-top: 1rem;
+  border: 1px solid black;
+  padding: 0,5;
+  max-height: 4rem;
+  overflow: auto;
+}
+#refresh{
+  /* all: revert; */
+  margin-left: 2rem;
+}
