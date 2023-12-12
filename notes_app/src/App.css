@@ -125,3 +125,8 @@ header button{
   /* all: revert; */
   margin-left: 2rem;
 }
+
+.words h3{
+  color:  rgb(51, 38, 93);
+  margin: 1rem;
+}
